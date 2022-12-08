@@ -1,8 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<GridPane fx:id="root" hgap="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="NEVER" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints vgrow="NEVER" />
+    <RowConstraints maxHeight="-Infinity" />
+    <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label fx:id="serverLabel" text="Servidor SMTP:" />
+      <HBox fx:id="serverBox" spacing="5.0" GridPane.columnIndex="1">
+         <children>
+            <TextField fx:id="serverText" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Nombre o IP del servidor" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="portText" prefWidth="60.0" promptText="Puerto" HBox.hgrow="NEVER" />
+         </children>
+      </HBox>
+      <VBox fx:id="buttonBox" spacing="5.0" GridPane.columnIndex="2" GridPane.rowSpan="6">
+         <children>
+            <Button fx:id="sendButton" defaultButton="true" mnemonicParsing="false" onAction="#onSendAction" text="Enviar" />
+            <Button fx:id="cleanButton" mnemonicParsing="false" onAction="#onCleanAction" text="Vaciar" />
+            <Button fx:id="closeButton" mnemonicParsing="false" onAction="#onCloseAction" text="Cerrar" />
+         </children>
+      </VBox>
+      <Label fx:id="conecLabel" text="Usar conexión SSL:" GridPane.rowIndex="1">
+         <padding>
+            <Insets bottom="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <CheckBox fx:id="conecBox" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="fromLabel" text="Remitente (From):" GridPane.rowIndex="2" />
+      <HBox fx:id="fromBox" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <TextField fx:id="fromText" promptText="Email del remitente" HBox.hgrow="ALWAYS" />
+            <PasswordField fx:id="passwordField" promptText="Contraseña" />
+         </children>
+      </HBox>
+      <Label fx:id="toLabel" text="Destinatario (To):" GridPane.rowIndex="3" />
+      <TextField fx:id="toText" promptText="Email del destinatario" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Label fx:id="subjectLabel" text="Asunto (Subject):" GridPane.rowIndex="4" />
+      <TextField fx:id="subjectText" promptText="Asunto del mensaje" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextArea fx:id="messageArea" prefHeight="200.0" prefWidth="200.0" promptText="Mensaje" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
 </GridPane>
-
